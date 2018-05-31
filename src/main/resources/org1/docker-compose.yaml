@@ -22,10 +22,10 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/d29e1486ec5579028ba9aa5a11a122cb291f11a757fb33839b80f922fb3b25ab_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/aef5b1b6993d2d658f808be953788ad25d5ee8d067f58afdf9842c1a8ec7780b_sk
     ports:
       - "7054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/d29e1486ec5579028ba9aa5a11a122cb291f11a757fb33839b80f922fb3b25ab_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/aef5b1b6993d2d658f808be953788ad25d5ee8d067f58afdf9842c1a8ec7780b_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - /data/fabric_backup/fabric-ca-server:/etc/hyperledger/fabric-ca-server
@@ -63,7 +63,7 @@ services:
           - /var/run/:/host/var/run/
           - /opt/goworkspace/src/github.com/hyperledger/fabric/examples/chaincode/go:/opt/gopath/src/github.com/hyperledger/fabric/peer/chaincode/go
           - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
-          - ./channel-artifacts/onechannel.tx:/opt/gopath/src/github.com/hyperledger/fabric/peer/onechannel.tx
+          - ./channel-artifacts/demochannel.tx:/opt/gopath/src/github.com/hyperledger/fabric/peer/demochannel.tx
       depends_on:
         - orderer.example.com
         - peer0.org1.example.com
